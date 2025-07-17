@@ -24,11 +24,8 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
         sendResponse({ hints: "Wrong!" });
       }
     })()
-
-    return true;
-    
+    return true; 
   }
-  
 });
 
 chrome.tabs.onActivated.addListener(async (activeInfo) => {

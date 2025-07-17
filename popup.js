@@ -16,19 +16,34 @@ document.getElementById("generate").addEventListener("click", async () => {
         }
     })
 
-    console.log("[LeetHint] Script executed, result:", results[0].result);
+    const problem = results[0].result
+
+    console.log("[LeetHint] Script executed, result:", problem);
+
+    const response = await fetch("http://localhost:8080/api/hint", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(problem)
+    })
     
-    chrome.runtime.sendMessage(
-      {
-        type: "leetcode-problem",
-        problem: results[0].result
-      },
-      (response) => {
-        console.log(response)
-        const output = response?.hints || "No hints returned.";
-        document.getElementById("hints").textContent = output;
-      }
-    );
+    const data = await response.json()
+
+    console.log(data)
+
+    const output = data?.hints || "No hints returned.";
+    document.getElementById("hints").textContent = output;
+    
+    // chrome.runtime.sendMessage(
+    //   {
+    //     type: "leetcode-problem",
+    //     problem: problem
+    //   },
+    //   (response) => {
+    //     console.log(response)
+    //     const output = response?.hints || "No hints returned.";
+    //     document.getElementById("hints").textContent = output;
+    //   }
+    // );
   } catch (error) {
     console.log(error)
   }
