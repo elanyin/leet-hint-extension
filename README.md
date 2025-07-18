@@ -18,6 +18,7 @@ LeetHint 是一个 Chrome 浏览器扩展，能够在 LeetCode 题目页面中�
 - ✅ 插件图标（icon.png）设置完成
 - ✅ 插件 manifest v3 配置完成，调试模式运行正常
 - ✅ **后端（Spring Boot）接入成功，用于隐藏 Gemini API Key**
+- ✅ Spring Boot 后端部署至 Koyeb，供插件调用
 
 ---
 
@@ -76,6 +77,7 @@ cd leethint-server
 - Spring Web / WebMVC
 - `.env` + `@ConfigurationProperties` 管理 API Key
 - 使用 `RestTemplate` 向 Gemini API 发起请求
+- Koyeb 部署平台
 
 ---
 

@@ -20,7 +20,7 @@ document.getElementById("generate").addEventListener("click", async () => {
 
     console.log("[LeetHint] Script executed, result:", problem);
 
-    const response = await fetch("http://localhost:8080/api/hint", {
+    const response = await fetch("https://literary-britteny-elanyin-13c6e7ee.koyeb.app/api/hint", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(problem)
